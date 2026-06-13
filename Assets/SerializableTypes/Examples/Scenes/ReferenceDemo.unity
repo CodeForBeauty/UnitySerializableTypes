@@ -152,21 +152,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effect:
-    rid: -2
+    rid: 7402947224690753538
   _test: {fileID: 0}
   _effectList:
   - rid: 7402947202346909705
   - rid: 7402947202346909709
+  _wrapperTest:
+    _value:
+      rid: 7402947224690753539
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 7402947202346909705
       type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
       data:
         _damage: 5
     - rid: 7402947202346909709
+      type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
+      data:
+        _damage: 5
+    - rid: 7402947224690753538
+      type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
+      data:
+        _damage: 5
+    - rid: 7402947224690753539
       type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
       data:
         _damage: 5

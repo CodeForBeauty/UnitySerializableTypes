@@ -53,6 +53,8 @@ namespace SerializableTypes.Editor {
             // Drawing managedReference's fields
             if (property.managedReferenceValue != null) {
                 Foldout refFoldout = new();
+                refFoldout.text = "Values";
+                refFoldout.style.marginLeft = 15;
 
                 var iterator = property.Copy();
                 var end = iterator.GetEndProperty();
@@ -100,7 +102,7 @@ namespace SerializableTypes.Editor {
                 );
 
                 EditorGUI.indentLevel++;
-                EditorGUI.PropertyField(contentRect, property, true);
+                EditorGUI.PropertyField(contentRect, property, new GUIContent("Values"), true);
                 EditorGUI.indentLevel--;
             }
         }
