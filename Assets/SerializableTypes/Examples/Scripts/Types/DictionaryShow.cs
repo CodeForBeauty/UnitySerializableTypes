@@ -7,7 +7,7 @@ namespace SerializableTypes.Examples {
         [SerializeField] private SerializableDictionary<string, string> _stringTest;
 
         [Header("Dictionary with [SerializeReference]")]
-        [SerializeField] private SerializableDictionaryRef<string, EffectBase> _refTest;
+        [SerializeField] private SerializableDictionary<string, RefWrapper<EffectBase>> _refTest;
 
         private void Start() {
             foreach (var kv in _stringTest.Dict) {

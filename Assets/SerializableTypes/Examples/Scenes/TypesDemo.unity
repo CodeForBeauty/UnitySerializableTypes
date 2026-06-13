@@ -267,15 +267,22 @@ MonoBehaviour:
       Value:
         rid: 7402947202346909702
       isDuplicate: 0
-  _intTest:
+  _refTest1:
     hasDuplicates: 0
     _dictionary:
     - Key: 
-      Value: -12
+      Value:
+        _value:
+          rid: -2
       isDuplicate: 0
+  _test:
+    _value:
+      rid: -2
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 7402947202346909702
       type: {class: EffectStun, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
       data:

@@ -8,7 +8,9 @@ namespace SerializableTypes {
     /// </summary>
     /// <typeparam name="T">Elements type for a HashSet</typeparam>
     [System.Serializable]
-    public class SerializableSet<T> : SerializableSetBase<T>, ISerializationCallbackReceiver {
+    public class SerializableSet<T> : ISerializationCallbackReceiver {
+        readonly public HashSet<T> Set = new();
+
         [SerializeField] private List<T> _set;
 
         public void OnBeforeSerialize() { }

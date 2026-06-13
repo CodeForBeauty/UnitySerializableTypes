@@ -10,7 +10,7 @@ namespace SerializableTypes {
     /// <typeparam name="TKey">Key type for a Dictionary</typeparam>
     /// <typeparam name="TVal">Value type for a Dictionary</typeparam>
     [System.Serializable]
-    public class SerializableDictionary<TKey, TVal> : SerializableDictionaryBase<TKey, TVal>, ISerializationCallbackReceiver {
+    public class SerializableDictionary<TKey, TVal> : ISerializationCallbackReceiver {
         /// <summary>
         /// Key-Value pair with boolean mark for duplicates.
         /// </summary>
@@ -21,6 +21,10 @@ namespace SerializableTypes {
 
             public bool isDuplicate;
         }
+
+        readonly public Dictionary<TKey, TVal> Dict = new();
+
+        [SerializeField] protected bool hasDuplicates = false;
 
         [SerializeField] private List<KeyValue> _dictionary;
 

@@ -126,7 +126,12 @@ namespace SerializableTypes.Editor {
             foreach (Type type in GetTypes(GetPropertyType())) {
                 menu.AddItem(new GUIContent(type != null ? type.Name : "Null"), false, () => {
                     property.serializedObject.Update();
-                    property.managedReferenceValue = Activator.CreateInstance(type);
+                    if (type == null) {
+                        property.managedReferenceValue = null;
+                    }
+                    else {
+                        property.managedReferenceValue = Activator.CreateInstance(type);
+                    }
                     property.serializedObject.ApplyModifiedProperties();
                 });
             }

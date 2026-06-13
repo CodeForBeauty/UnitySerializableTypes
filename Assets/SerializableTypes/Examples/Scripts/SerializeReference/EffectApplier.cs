@@ -13,6 +13,9 @@ namespace SerializableTypes.Examples {
         [Header("List of references")]
         [SerializeReference, SubclassSelector] private List<EffectBase> _effectList;
 
+        [Header("Reference wrapper class")]
+        [SerializeField] private RefWrapper<EffectBase> _wrapperTest;
+
         private void Start() {
             _effect.Apply(gameObject);
         }
