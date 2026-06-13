@@ -122,6 +122,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &108098672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 108098674}
+  - component: {fileID: 108098673}
+  m_Layer: 0
+  m_Name: StackView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &108098673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108098672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a27a975760a7a14eb15b9f37c3f57da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _intStack:
+    _stack: 
+  _stringStack:
+    _stack: []
+--- !u!4 &108098674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108098672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &513185244
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,12 +200,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _intSet:
-    _set: 000000000000000000000000
+    _set: 000000000100000002000000
+    _hasDuplicates: 0
   _stringSet:
     _set:
-    - 
-    - 
-    - 
+    - a
+    - b
+    - c
+    _hasDuplicates: 0
 --- !u!4 &513185246
 Transform:
   m_ObjectHideFlags: 0
@@ -298,29 +348,24 @@ MonoBehaviour:
     _dictionary:
     - Key: Skibidi
       Value: Toilet
-      isDuplicate: 0
     - Key: More
       Value: Bullets
-      isDuplicate: 0
-    hasDuplicates: 0
+    _hasDuplicates: 0
   _refTest:
     _dictionary:
     - Key: Short Stun
       Value:
         _value:
           rid: -2
-      isDuplicate: 0
     - Key: Short Stun1
       Value:
         _value:
           rid: -2
-      isDuplicate: 0
     - Key: Short Stun12
       Value:
         _value:
           rid: -2
-      isDuplicate: 0
-    hasDuplicates: 0
+    _hasDuplicates: 0
   references:
     version: 2
     RefIds:
@@ -348,3 +393,4 @@ SceneRoots:
   - {fileID: 861697111}
   - {fileID: 1214464297}
   - {fileID: 513185246}
+  - {fileID: 108098674}
