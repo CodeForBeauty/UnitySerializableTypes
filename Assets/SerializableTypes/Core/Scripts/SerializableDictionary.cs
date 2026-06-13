@@ -4,8 +4,16 @@ using UnityEngine;
 
 namespace SerializableTypes {
 
+    /// <summary>
+    /// Dictionary wrapper with elements serialized as values.
+    /// </summary>
+    /// <typeparam name="TKey">Key type for a Dictionary</typeparam>
+    /// <typeparam name="TVal">Value type for a Dictionary</typeparam>
     [System.Serializable]
     public class SerializableDictionary<TKey, TVal> : SerializableDictionaryBase<TKey, TVal>, ISerializationCallbackReceiver {
+        /// <summary>
+        /// Key-Value pair with boolean mark for duplicates.
+        /// </summary>
         [System.Serializable]
         public class KeyValue {
             public TKey Key;

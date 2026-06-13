@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace SerializableTypes.Editor {
 
+    /// <summary>
+    /// Draw the wrapper class as a list. Getting rid of additional foldouts.
+    /// Shows warning if there are duplicates.
+    /// </summary>
     [CustomPropertyDrawer(typeof(SerializableDictionary<,>))]
     public class SerializableDictionaryDrawer : PropertyDrawer {
-        public override bool CanCacheInspectorGUI(SerializedProperty property) {
-            return false;
-        }
-
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
             SerializedProperty list = property.FindPropertyRelative("_dictionary");
             EditorGUI.PropertyField(position, list, label);

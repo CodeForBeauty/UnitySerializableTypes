@@ -3,8 +3,16 @@ using UnityEngine;
 
 namespace SerializableTypes {
 
+    /// <summary>
+    /// Dictionary wrapper with Keys serialized as values and Values serialized as references
+    /// </summary>
+    /// <typeparam name="TKey">Key type for a Dictionary</typeparam>
+    /// <typeparam name="TVal">Value type for a Dictionary. Only reference types allowed(no structs).</typeparam>
     [System.Serializable]
     public class SerializableDictionaryRef<TKey, TVal> : SerializableDictionaryBase<TKey, TVal>, ISerializationCallbackReceiver {
+        /// <summary>
+        /// Key-Value pair with boolean mark for duplicates.
+        /// </summary>
         [System.Serializable]
         public class KeyValue {
             public TKey Key;

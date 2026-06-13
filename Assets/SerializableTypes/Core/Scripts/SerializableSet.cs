@@ -3,17 +3,15 @@ using UnityEngine;
 
 namespace SerializableTypes {
 
+    /// <summary>
+    /// HashSet wrapper with elements serialized as values.
+    /// </summary>
+    /// <typeparam name="T">Elements type for a HashSet</typeparam>
     [System.Serializable]
     public class SerializableSet<T> : SerializableSetBase<T>, ISerializationCallbackReceiver {
         [SerializeField] private List<T> _set;
 
-        public void OnBeforeSerialize() {
-            _set.Clear();
-
-            foreach (T el in Set) {
-                _set.Add(el);
-            }
-        }
+        public void OnBeforeSerialize() { }
 
         public void OnAfterDeserialize() {
             Set.Clear();

@@ -7,11 +7,15 @@ using UnityEngine.UIElements;
 
 namespace SerializableTypes.Editor {
 
+    /// <summary>
+    /// Polymorphic subclass selector.
+    /// </summary>
     [CustomPropertyDrawer(typeof(SubclassSelectorAttribute))]
     public class SubclassSelectorDrawer : PropertyDrawer {
-        static private readonly Dictionary<Type, List<Type>> _cache = new();
+        static readonly private Dictionary<Type, List<Type>> _cache = new();
 
 
+        #region UI Toolkit
         public override VisualElement CreatePropertyGUI(SerializedProperty property) {
             VisualElement container = new();
 
@@ -20,6 +24,7 @@ namespace SerializableTypes.Editor {
                 return container;
             }
 
+            // Type selection dropdown creation
             string typeName = property.managedReferenceValue == null
                 ? "Null"
                 : property.managedReferenceValue.GetType().Name;
@@ -45,6 +50,7 @@ namespace SerializableTypes.Editor {
 
             container.Add(dropdown);
 
+            // Drawing managedReference's fields
             if (property.managedReferenceValue != null) {
                 Foldout refFoldout = new();
 
@@ -59,14 +65,14 @@ namespace SerializableTypes.Editor {
 
                     refFoldout.Add(new PropertyField(iterator.Copy()));
                 }
-                /*PropertyField prop = new(property, typeName);
-                container.Add(prop);*/
                 container.Add(refFoldout);
             }
 
             return container;
         }
+        #endregion
 
+        #region IMGUI
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
             if (property.propertyType != SerializedPropertyType.ManagedReference) {
                 EditorGUI.LabelField(position, label.text, "[SerializeReference] required");
@@ -110,6 +116,10 @@ namespace SerializableTypes.Editor {
             return height;
         }
 
+        /// <summary>
+        /// Show the type list to select from
+        /// </summary>
+        /// <param name="property">property to update upon selection</param>
         private void ShowSelectMenu(SerializedProperty property) {
             GenericMenu menu = new();
 
@@ -123,7 +133,14 @@ namespace SerializableTypes.Editor {
 
             menu.ShowAsContext();
         }
+        #endregion
 
+        #region Common
+        /// <summary>
+        /// Get the list of non abstract types derived fom a baseType.
+        /// </summary>
+        /// <param name="baseType">baseType to search types</param>
+        /// <returns>List of derived types</returns>
         private List<Type> GetTypes(Type baseType) {
             if (_cache.ContainsKey(baseType)) {
                 return _cache[baseType];
@@ -145,6 +162,10 @@ namespace SerializableTypes.Editor {
             return subclasses;
         }
 
+        /// <summary>
+        /// Get the type of the current field.
+        /// </summary>
+        /// <returns>Element type in arrays, and the first argument in generic types</returns>
         private Type GetPropertyType() {
             Type type = fieldInfo.FieldType;
 
@@ -158,6 +179,7 @@ namespace SerializableTypes.Editor {
 
             return type;
         }
+        #endregion
     }
 
 }

@@ -3,12 +3,11 @@ using UnityEngine;
 
 namespace SerializableTypes.Editor {
 
+    /// <summary>
+    /// Draw KeyValue pair without foldout with coloring on duplicates.
+    /// </summary>
     [CustomPropertyDrawer(typeof(SerializableDictionary<,>.KeyValue))]
     public class DictionaryPairDrawer : PropertyDrawer {
-        public override bool CanCacheInspectorGUI(SerializedProperty property) {
-            return false;
-        }
-
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
             if (property.FindPropertyRelative("isDuplicate").boolValue) {
                 GUI.backgroundColor = Color.red;
