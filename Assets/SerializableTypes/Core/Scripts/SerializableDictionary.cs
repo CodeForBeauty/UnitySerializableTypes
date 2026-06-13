@@ -18,16 +18,14 @@ namespace SerializableTypes {
         public class KeyValue {
             public TKey Key;
             public TVal Value;
-
-            public bool isDuplicate;
         }
 
         readonly private Dictionary<TKey, TVal> _data = new();
         public IReadOnlyDictionary<TKey, TVal> Data => _data;
 
 
-        [SerializeField] private List<KeyValue> _dictionary;
-        [SerializeField] protected bool hasDuplicates = false;
+        [SerializeField] private List<KeyValue> _dictionary = new();
+        [SerializeField] protected bool _hasDuplicates = false;
 
         #region Editing
         /// <summary>
@@ -80,15 +78,14 @@ namespace SerializableTypes {
 
         public void OnAfterDeserialize() {
             _data.Clear();
-            hasDuplicates = false;
+            _hasDuplicates = false;
 
             foreach (KeyValue kv in _dictionary) {
                 if (_data.ContainsKey(kv.Key)) {
-                    kv.isDuplicate = true;
-                    hasDuplicates = true;
+                    Debug.LogWarning($"Duplicate key: {kv.Key} in a dictionary");
+                    _hasDuplicates = true;
                 }
                 else {
-                    kv.isDuplicate = false;
                     _data.Add(kv.Key, kv.Value);
                 }
             }

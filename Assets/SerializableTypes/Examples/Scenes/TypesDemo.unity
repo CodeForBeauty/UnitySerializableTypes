@@ -154,7 +154,10 @@ MonoBehaviour:
   _intSet:
     _set: 000000000000000000000000
   _stringSet:
-    _set: []
+    _set:
+    - 
+    - 
+    - 
 --- !u!4 &513185246
 Transform:
   m_ObjectHideFlags: 0

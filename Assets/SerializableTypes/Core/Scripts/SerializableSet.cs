@@ -12,7 +12,8 @@ namespace SerializableTypes {
         readonly private HashSet<T> _data = new();
         public IReadOnlyCollection<T> Data => _data;
 
-        [SerializeField] private List<T> _set;
+        [SerializeField] private List<T> _set = new();
+        [SerializeField] protected bool _hasDuplicates = false;
 
         #region Editing
         /// <summary>
@@ -68,9 +69,16 @@ namespace SerializableTypes {
 
         public void OnAfterDeserialize() {
             _data.Clear();
+            _hasDuplicates = false;
             
             foreach (T el in _set) {
-                _data.Add(el);
+                if (_data.Contains(el)) {
+                    Debug.LogWarning($"Duplicate value: {el} in a set");
+                    _hasDuplicates = true;
+                }
+                else {
+                    _data.Add(el);
+                }
             }
         }
         #endregion

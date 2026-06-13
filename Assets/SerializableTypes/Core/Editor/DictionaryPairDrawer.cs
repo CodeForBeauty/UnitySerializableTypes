@@ -9,10 +9,6 @@ namespace SerializableTypes.Editor {
     [CustomPropertyDrawer(typeof(SerializableDictionary<,>.KeyValue))]
     public class DictionaryPairDrawer : PropertyDrawer {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
-            if (property.FindPropertyRelative("isDuplicate").boolValue) {
-                GUI.backgroundColor = Color.red;
-            }
-
             float lineHeight = EditorGUIUtility.singleLineHeight;
             Rect labelPos = new(position.position.x, position.position.y, position.width, lineHeight);
             EditorGUI.LabelField(labelPos, label);
@@ -22,8 +18,6 @@ namespace SerializableTypes.Editor {
             Rect keyPos = new(position.position.x, position.position.y + lineHeight + 2, position.width, keyHeight);
 
             EditorGUI.PropertyField(keyPos, keyProperty);
-
-            GUI.backgroundColor = Color.white;
 
             SerializedProperty valProperty = property.FindPropertyRelative("Value");
             float valHeight = EditorGUI.GetPropertyHeight(valProperty);
