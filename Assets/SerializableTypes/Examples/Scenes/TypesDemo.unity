@@ -122,6 +122,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &513185244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513185246}
+  - component: {fileID: 513185245}
+  m_Layer: 0
+  m_Name: SetView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &513185245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513185244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ae801c8bd731048842875384e9b829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _intSet:
+    _set: 000000000000000000000000
+  _stringSet:
+    _set: []
+--- !u!4 &513185246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513185244}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &861697108
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stringTest:
-    hasDuplicates: 0
     _dictionary:
     - Key: Skibidi
       Value: Toilet
@@ -252,41 +299,30 @@ MonoBehaviour:
     - Key: More
       Value: Bullets
       isDuplicate: 0
-  _refTest:
     hasDuplicates: 0
+  _refTest:
     _dictionary:
     - Key: Short Stun
-      Value:
-        rid: 7402947202346909702
-      isDuplicate: 0
-    - Key: Short Stun1
-      Value:
-        rid: 7402947202346909702
-      isDuplicate: 0
-    - Key: Short Stun12
-      Value:
-        rid: 7402947202346909702
-      isDuplicate: 0
-  _refTest1:
-    hasDuplicates: 0
-    _dictionary:
-    - Key: 
       Value:
         _value:
           rid: -2
       isDuplicate: 0
-  _test:
-    _value:
-      rid: -2
+    - Key: Short Stun1
+      Value:
+        _value:
+          rid: -2
+      isDuplicate: 0
+    - Key: Short Stun12
+      Value:
+        _value:
+          rid: -2
+      isDuplicate: 0
+    hasDuplicates: 0
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 7402947202346909702
-      type: {class: EffectStun, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
-      data:
-        _stunTime: 2
 --- !u!4 &1214464297
 Transform:
   m_ObjectHideFlags: 0
@@ -308,3 +344,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 861697111}
   - {fileID: 1214464297}
+  - {fileID: 513185246}

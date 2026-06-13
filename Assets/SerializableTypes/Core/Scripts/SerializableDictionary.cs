@@ -22,8 +22,8 @@ namespace SerializableTypes {
             public bool isDuplicate;
         }
 
-        readonly private Dictionary<TKey, TVal> _dict = new();
-        public IReadOnlyDictionary<TKey, TVal> Dict => _dict;
+        readonly private Dictionary<TKey, TVal> _data = new();
+        public IReadOnlyDictionary<TKey, TVal> Data => _data;
 
 
         [SerializeField] private List<KeyValue> _dictionary;
@@ -37,11 +37,11 @@ namespace SerializableTypes {
         /// <param name="value">Value for the addition</param>
         /// <returns>false if failed, true if added</returns>
         public bool Add(TKey key, TVal value) {
-            if (_dict.ContainsKey(key)) {
+            if (_data.ContainsKey(key)) {
                 return false;
             }
 
-            _dict.Add(key, value);
+            _data.Add(key, value);
             _dictionary.Add(new KeyValue() { Key = key, Value = value });
             return true;
         }
@@ -53,11 +53,11 @@ namespace SerializableTypes {
         /// <param name="key">Key to remove</param>
         /// <returns>false if key doesn't exist, true if key is removed</returns>
         public bool RemoveKey(TKey key) {
-            if (!_dict.ContainsKey(key)) {
+            if (!_data.ContainsKey(key)) {
                 return false;
             }
 
-            _dict.Remove(key);
+            _data.Remove(key);
             for (int i = _dictionary.Count - 1; i >= 0; i--) {
                 if (_dictionary[i].Key.Equals(key)) {
                     _dictionary.RemoveAt(i);
@@ -65,23 +65,31 @@ namespace SerializableTypes {
             }
             return true;
         }
+
+        /// <summary>
+        /// Clear the dictionary and serialized list.
+        /// </summary>
+        public void Clear() {
+            _data.Clear();
+            _dictionary.Clear();
+        }
         #endregion
 
         #region Serialization
         public void OnBeforeSerialize() { }
 
         public void OnAfterDeserialize() {
-            _dict.Clear();
+            _data.Clear();
             hasDuplicates = false;
 
             foreach (KeyValue kv in _dictionary) {
-                if (_dict.ContainsKey(kv.Key)) {
+                if (_data.ContainsKey(kv.Key)) {
                     kv.isDuplicate = true;
                     hasDuplicates = true;
                 }
                 else {
                     kv.isDuplicate = false;
-                    _dict.Add(kv.Key, kv.Value);
+                    _data.Add(kv.Key, kv.Value);
                 }
             }
         }

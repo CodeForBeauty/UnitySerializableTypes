@@ -10,7 +10,7 @@ namespace SerializableTypes.Examples {
         [SerializeField] private SerializableDictionary<string, RefWrapper<EffectBase>> _refTest;
 
         private void Start() {
-            foreach (var kv in _stringTest.Dict) {
+            foreach (var kv in _stringTest.Data) {
                 print($"{kv.Key} - {kv.Value}");
             }
         }
