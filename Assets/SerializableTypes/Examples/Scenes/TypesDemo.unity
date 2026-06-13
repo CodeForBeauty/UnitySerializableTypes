@@ -152,9 +152,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _intStack:
-    _stack: 
+    _stack: 000000000000000000000000
   _stringStack:
-    _stack: []
+    _stack:
+    - 
+    - 
+    - 
 --- !u!4 &108098674
 Transform:
   m_ObjectHideFlags: 0

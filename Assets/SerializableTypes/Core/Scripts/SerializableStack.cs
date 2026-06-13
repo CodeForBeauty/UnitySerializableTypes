@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SerializableTypes {
 
     /// <summary>
-    /// Wrapper class for Stack
+    /// Wrapper class for Stack.
     /// </summary>
     /// <typeparam name="T">Element type</typeparam>
     [System.Serializable]
