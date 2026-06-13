@@ -4,42 +4,41 @@ using UnityEngine;
 namespace SerializableTypes {
 
     /// <summary>
-    /// Wrapper class for Stack.
+    /// Wrapper class for Queue.
     /// </summary>
     /// <typeparam name="T">Element type</typeparam>
     [System.Serializable]
-    public class SerializableStack<T> : ISerializationCallbackReceiver {
-        readonly private Stack<T> _data = new();
+    public class SerializableQueue<T> : ISerializationCallbackReceiver {
+        readonly private Queue<T> _data = new();
         public int Count => _data.Count;
 
-        [SerializeField] private List<T> _stack = new();
-
+        [SerializeField] private List<T> _queue = new();
 
         #region Editing
         /// <summary>
-        /// Push value to the stack.
+        /// Enqueue a value to the end of the queue.
         /// </summary>
-        /// <param name="value">value to push</param>
-        public void Push(T value) {
-            _stack.Add(value);
-            _data.Push(value);
+        /// <param name="value">value to enqueue</param>
+        public void Enqueue(T value) {
+            _data.Enqueue(value);
+            _queue.Add(value);
         }
 
         /// <summary>
-        /// Try pop value from the stack.
+        /// Try dequeue a value from the queue.
         /// </summary>
         /// <param name="result">Output variable for result</param>
         /// <returns>true on success</returns>
-        public bool TryPop(out T result) {
-            if (_data.TryPop(out result)) {
-                _stack.RemoveAt(_stack.Count - 1);
+        public bool TryDequeue(out T result) {
+            if (_data.TryDequeue(out result)) {
+                _queue.RemoveAt(0);
                 return true;
             }
             return false;
         }
 
         /// <summary>
-        /// Try peek a value from the stack.
+        /// Try peek a value from the queue.
         /// </summary>
         /// <param name="result">Output variable for result</param>
         /// <returns>true on success</returns>
@@ -48,28 +47,28 @@ namespace SerializableTypes {
         }
 
         /// <summary>
-        /// Pop value from the stack without checking stack size.
+        /// Dequeue a value from the queue without checking queue size.
         /// </summary>
-        /// <returns>Last added element to the stack</returns>
-        public T Pop() {
-            _stack.RemoveAt(_stack.Count - 1);
-            return _data.Pop();
+        /// <returns>First added element to the queue</returns>
+        public T Dequeue() {
+            _queue.RemoveAt(0);
+            return _data.Dequeue();
         }
 
         /// <summary>
-        /// Peek value without checking stack size.
+        /// Peek a value from the queue without checking queue size.
         /// </summary>
-        /// <returns>last added element to the stack</returns>
+        /// <returns>First added element to the queue</returns>
         public T Peek() {
             return _data.Peek();
         }
 
         /// <summary>
-        /// Clear the Stack and serialized list.
+        /// Clear the Queue and serialized list.
         /// </summary>
         public void Clear() {
             _data.Clear();
-            _stack.Clear();
+            _queue.Clear();
         }
         #endregion
 
@@ -79,8 +78,8 @@ namespace SerializableTypes {
         public void OnAfterDeserialize() {
             _data.Clear();
 
-            foreach (T el in _stack) {
-                _data.Push(el);
+            foreach (T el in _queue) {
+                _data.Enqueue(el);
             }
         }
         #endregion
