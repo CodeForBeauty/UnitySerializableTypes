@@ -152,14 +152,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _intQueue:
-    _queue: 
+    _queue: 01000000
   _stringQueue:
-    _queue: []
+    _queue:
+    - asd
   _effectQueue:
-    _queue: []
+    _queue:
+    - _value:
+        rid: 7402947224690753540
+    - _value:
+        rid: 7402947224690753541
+    - _value:
+        rid: 7402947224690753542
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7402947224690753540
+      type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
+      data:
+        _damage: 4
+    - rid: 7402947224690753541
+      type: {class: EffectStun, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
+      data:
+        _stunTime: 3
+    - rid: 7402947224690753542
+      type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
+      data:
+        _damage: 10
 --- !u!4 &65144756
 Transform:
   m_ObjectHideFlags: 0
