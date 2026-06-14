@@ -6,7 +6,7 @@ namespace SerializableTypes {
     /// <summary>
     /// HashSet wrapper with elements serialized as values.
     /// </summary>
-    /// <typeparam name="T">Elements type for a HashSet</typeparam>
+    /// <typeparam name="T">Element type</typeparam>
     [System.Serializable]
     public class SerializableSet<T> : ISerializationCallbackReceiver {
         readonly private HashSet<T> _data = new();
@@ -19,7 +19,7 @@ namespace SerializableTypes {
         /// <summary>
         /// Check if wrapped HashSet contains value.
         /// </summary>
-        /// <param name="value">value to check</param>
+        /// <param name="value">Value to check</param>
         /// <returns>true if exists, false otherwise</returns>
         public bool Contains(T value) {
             return _data.Contains(value);
@@ -28,7 +28,7 @@ namespace SerializableTypes {
         /// <summary>
         /// Try to add a value to the HashSet.
         /// </summary>
-        /// <param name="value">value to add</param>
+        /// <param name="value">Value to add</param>
         /// <returns>false if value already exists, true if not</returns>
         public bool Add(T value) {
             if (_data.Contains(value)) {
@@ -42,8 +42,9 @@ namespace SerializableTypes {
 
         /// <summary>
         /// Try to remove a value from the HashSet.
+        /// Removes all of the occurences in a serialized list.
         /// </summary>
-        /// <param name="value">value to remove</param>
+        /// <param name="value">Value to remove</param>
         /// <returns>true if removed successfully, false otherwise</returns>
         public bool Remove(T value) {
             if (!_data.Contains(value)) {

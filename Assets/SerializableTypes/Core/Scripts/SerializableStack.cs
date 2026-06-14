@@ -59,7 +59,7 @@ namespace SerializableTypes {
         /// <summary>
         /// Peek value without checking stack size.
         /// </summary>
-        /// <returns>last added element to the stack</returns>
+        /// <returns>Last added element to the stack</returns>
         public T Peek() {
             return _data.Peek();
         }

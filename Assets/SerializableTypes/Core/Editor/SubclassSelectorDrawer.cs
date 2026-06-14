@@ -20,7 +20,7 @@ namespace SerializableTypes.Editor {
             VisualElement container = new();
 
             if (property.propertyType != SerializedPropertyType.ManagedReference) {
-                container.Add(new Label("[SerializeReference] required"));
+                container.Add(new Label("Type not supported"));
                 return container;
             }
 
@@ -53,7 +53,7 @@ namespace SerializableTypes.Editor {
             // Drawing managedReference's fields
             if (property.managedReferenceValue != null) {
                 Foldout refFoldout = new();
-                refFoldout.text = "Values";
+                refFoldout.text = "Data";
                 refFoldout.style.marginLeft = 15;
 
                 var iterator = property.Copy();
@@ -102,7 +102,7 @@ namespace SerializableTypes.Editor {
                 );
 
                 EditorGUI.indentLevel++;
-                EditorGUI.PropertyField(contentRect, property, new GUIContent("Values"), true);
+                EditorGUI.PropertyField(contentRect, property, new GUIContent("Data"), true);
                 EditorGUI.indentLevel--;
             }
         }

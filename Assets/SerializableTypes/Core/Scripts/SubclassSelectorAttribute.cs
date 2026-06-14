@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SerializableTypes {
 
     /// <summary>
-    /// Subclass selector for SerializeReference.
+    /// Polymorphic subclass selector for SerializeReference.
     /// </summary>
     public class SubclassSelectorAttribute : PropertyAttribute { }
 

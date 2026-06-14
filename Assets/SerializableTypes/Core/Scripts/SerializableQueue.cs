@@ -18,7 +18,7 @@ namespace SerializableTypes {
         /// <summary>
         /// Enqueue a value to the end of the queue.
         /// </summary>
-        /// <param name="value">value to enqueue</param>
+        /// <param name="value">Value to enqueue</param>
         public void Enqueue(T value) {
             _data.Enqueue(value);
             _queue.Add(value);

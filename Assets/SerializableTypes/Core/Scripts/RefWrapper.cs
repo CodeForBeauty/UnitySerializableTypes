@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SerializableTypes {
 
     /// <summary>
-    /// SerializeReference wrapper for classes
+    /// SerializeReference wrapper for classes.
     /// </summary>
     /// <typeparam name="T">Wrapped object type</typeparam>
     [System.Serializable]

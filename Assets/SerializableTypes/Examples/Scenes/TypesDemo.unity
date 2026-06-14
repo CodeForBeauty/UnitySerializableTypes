@@ -431,21 +431,31 @@ MonoBehaviour:
     - Key: Short Stun
       Value:
         _value:
-          rid: -2
+          rid: 7402947244944785410
     - Key: Short Stun1
       Value:
         _value:
-          rid: -2
+          rid: 7402947244944785409
     - Key: Short Stun12
       Value:
         _value:
-          rid: -2
+          rid: 7402947244944785408
     _hasDuplicates: 0
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 7402947244944785408
+      type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
+      data:
+        _damage: 5
+    - rid: 7402947244944785409
+      type: {class: EffectStun, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
+      data:
+        _stunTime: 2
+    - rid: 7402947244944785410
+      type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
+      data:
+        _damage: 5
 --- !u!4 &1214464297
 Transform:
   m_ObjectHideFlags: 0
