@@ -156,18 +156,16 @@ MonoBehaviour:
   _test: {fileID: 0}
   _effectList:
   - rid: 7402947202346909705
-  - rid: 7402947202346909709
+  - rid: 7402947244944785412
   _wrapperTest:
     _value:
-      rid: 7402947224690753539
+      rid: -2
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 7402947202346909705
-      type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
-      data:
-        _damage: 5
-    - rid: 7402947202346909709
       type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
       data:
         _damage: 5
@@ -175,10 +173,10 @@ MonoBehaviour:
       type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
       data:
         _damage: 5
-    - rid: 7402947224690753539
-      type: {class: EffectDamage, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
+    - rid: 7402947244944785412
+      type: {class: EffectStun, ns: SerializableTypes.Examples, asm: Assembly-CSharp}
       data:
-        _damage: 5
+        _stunTime: 2
 --- !u!4 &511329885
 Transform:
   m_ObjectHideFlags: 0
