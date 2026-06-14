@@ -9,9 +9,16 @@ namespace SerializableTypes.Examples {
         [Header("Dictionary with [SerializeReference]")]
         [SerializeField] private SerializableDictionary<string, RefWrapper<EffectBase>> _refTest;
 
-        private void Start() {
+        public void PrintStringDictionary() {
             foreach (var kv in _stringTest.Data) {
-                print($"{kv.Key} - {kv.Value}");
+                Debug.Log($"{kv.Key} - {kv.Value}");
+            }
+        }
+
+        public void FireReferences() {
+            foreach (var kv in _refTest.Data) {
+                Debug.Log(kv.Key);
+                kv.Value.Value.Apply(gameObject);
             }
         }
     }
