@@ -46,7 +46,7 @@ namespace SerializableTypes {
 
         /// <summary>
         /// Tries to remove the key from dictionary.
-        /// Removes all of the occurences in a serialized list.
+        /// Removes all of the occurrences in a serialized list.
         /// </summary>
         /// <param name="key">Key to remove</param>
         /// <returns>false if key doesn't exist, true if key is removed</returns>

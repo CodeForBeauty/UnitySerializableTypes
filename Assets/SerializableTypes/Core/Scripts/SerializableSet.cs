@@ -42,7 +42,7 @@ namespace SerializableTypes {
 
         /// <summary>
         /// Try to remove a value from the HashSet.
-        /// Removes all of the occurences in a serialized list.
+        /// Removes all of the occurrences in a serialized list.
         /// </summary>
         /// <param name="value">Value to remove</param>
         /// <returns>true if removed successfully, false otherwise</returns>
